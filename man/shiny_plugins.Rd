@@ -34,7 +34,8 @@ Class providing object of \code{\link{R6Class}} to easily and automatically impl
 
 \examples{
 \dontrun{
-plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
+  library(shinyPlugins)
+  plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
 }
 
 }

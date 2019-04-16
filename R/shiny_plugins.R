@@ -12,7 +12,8 @@
 #' @keywords plugins
 #' @format \code{\link{R6Class}} object
 #' @examples \dontrun{
-#' plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
+#'   library(shinyPlugins)
+#'   plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
 #' }
 #'
 #' @section Methods:
@@ -48,7 +49,7 @@ shiny_plugins <- R6::R6Class(
       names(ui.modules) <- gsub(paste0("^", ui.pattern), "", ui.modules)
       names(server.modules) <- gsub(paste0("^", server.pattern), "", server.modules)
       uniq.names <- unique(names(server.modules), names(ui.modules))
-      browser()
+
       for (nm in uniq.names) {
         futile.logger::flog.info(sprintf("parsing plugin's tabItem: %s", nm), name = private$..logger_name)
 
