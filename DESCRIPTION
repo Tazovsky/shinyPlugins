@@ -1,0 +1,16 @@
+Package: shinyPlugins
+Type: Package
+Title: Shiny plugins implementation
+Version: 0.1.0
+Author: Kamil Foltyński
+Maintainer: Kamil Foltyński <kamil@foltynski.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Depends:
+  shiny,
+  shinydashboard,
+  plotly
+RoxygenNote: 6.1.0
