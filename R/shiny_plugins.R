@@ -69,7 +69,7 @@ shiny_plugins <- R6::R6Class(
                                              tab.name = tab.name)
       }
 
-      menuItem <- menuItem("Plugins", icon = icon("bar-chart-o"),
+      menuItem <- menuItem("Plugins", icon = icon("plug"),
                            lapply(names(shiny.plugins), function(nm) {
                              menuSubItem(paste0("Plugin: ", nm), tabName = nm)
                            })

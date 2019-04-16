@@ -2,14 +2,13 @@ library(shinyPlugins)
 futile.logger::flog.threshold(futile.logger::DEBUG)
 
 ui <- dashboardPage(
-  dashboardHeader(title = "Simple tabs"),
+  dashboardHeader(title = "shinyPlugins"),
   dashboardSidebar(
     sidebarMenu(
       id = "tabs",
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Widgets", tabName = "widgets", icon = icon("th"))
-    ),
-    actionButton('switchtab', 'Switch tab')
+    )
   ),
   dashboardBody(
     tabItems(
@@ -24,13 +23,6 @@ ui <- dashboardPage(
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$switchtab, {
-    newtab <- switch(input$tabs,
-                     "dashboard" = "widgets",
-                     "widgets" = "dashboard"
-    )
-    updateTabItems(session, "tabs", newtab)
-  })
 
   plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
 
