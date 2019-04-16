@@ -2,12 +2,13 @@
 #'
 #' Class providing object of \code{\link{R6Class}} to easily and automatically implement Shiny plugins (modules)
 #'
-#' @param ui.pattern prefix to find **UI** functions of modules
-#' @param server.pattern prefix to find **server** functions of modules
+#' @param ui.pattern prefix to find \strong{UI} functions of modules
+#' @param server.pattern prefix to find \strong{server} functions of modules
 #'
 #' @return Object of \code{\link{R6Class}}
 #' @docType class
 #' @importFrom R6 R6Class
+#' @author Kamil Foltyński
 #' @export
 #' @keywords plugins
 #' @format \code{\link{R6Class}} object
@@ -22,8 +23,8 @@
 #'   \item{\code{getTabItems()}}{Get list of \code{\link[shinydashboard]{tabItem}} with content of plugins}
 #'   \item{\code{getMenuItem()}}{Get \code{\link[shinydashboard]{menuItem}} containing plugins}
 #'
-#'   \item{\code{getModulesUI()}}{Get names of modules **UI** functions}
-#'   \item{\code{getModulesServer()}}{Get names of modules **server** functions}
+#'   \item{\code{getModulesUI()}}{Get names of modules \strong{UI} functions}
+#'   \item{\code{getModulesServer()}}{Get names of modules \strong{server} functions}
 #'
 #'   }
 shiny_plugins <- R6::R6Class(

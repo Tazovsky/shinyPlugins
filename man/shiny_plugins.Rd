@@ -9,9 +9,9 @@
 shiny_plugins
 }
 \arguments{
-\item{ui.pattern}{prefix to find **UI** functions of modules}
+\item{ui.pattern}{prefix to find \strong{UI} functions of modules}
 
-\item{server.pattern}{prefix to find **server** functions of modules}
+\item{server.pattern}{prefix to find \strong{server} functions of modules}
 }
 \value{
 Object of \code{\link{R6Class}}
@@ -26,8 +26,8 @@ Class providing object of \code{\link{R6Class}} to easily and automatically impl
   \item{\code{getTabItems()}}{Get list of \code{\link[shinydashboard]{tabItem}} with content of plugins}
   \item{\code{getMenuItem()}}{Get \code{\link[shinydashboard]{menuItem}} containing plugins}
 
-  \item{\code{getModulesUI()}}{Get names of modules **UI** functions}
-  \item{\code{getModulesServer()}}{Get names of modules **server** functions}
+  \item{\code{getModulesUI()}}{Get names of modules \strong{UI} functions}
+  \item{\code{getModulesServer()}}{Get names of modules \strong{server} functions}
 
   }
 }
@@ -38,5 +38,8 @@ Class providing object of \code{\link{R6Class}} to easily and automatically impl
   plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
 }
 
+}
+\author{
+Kamil Foltyński
 }
 \keyword{plugins}
