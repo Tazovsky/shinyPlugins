@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @rdname shinyPlugin_example
-shinyPlugin_exampleUI <- function(id) {
+shinyPluginUI_example <- function(id) {
   stopifnot(!missing(id))
   ns <- shiny::NS(id)
   fluidPage(
@@ -22,7 +22,7 @@ shinyPlugin_exampleUI <- function(id) {
 #'
 #' @export
 #' @rdname shinyPlugin_example
-shinyPlugin_example <- function(input, output, session) {
+shinyPluginServer_example <- function(input, output, session) {
 
   output$plot <- renderPlotly({
     plot_ly(mtcars, x = ~mpg, y = ~wt)
@@ -42,7 +42,7 @@ shinyPlugin_example <- function(input, output, session) {
 #'
 #' @export
 #' @rdname shinyPlugin_example2
-shinyPlugin_example2UI <- function(id) {
+shinyPluginUI_example2 <- function(id) {
   stopifnot(!missing(id))
   ns <- shiny::NS(id)
   fluidPage(
@@ -59,7 +59,7 @@ shinyPlugin_example2UI <- function(id) {
 #'
 #' @export
 #' @rdname shinyPlugin_example2
-shinyPlugin_example2 <- function(input, output, session) {
+shinyPluginServer_example2 <- function(input, output, session) {
 
   output$plot <- renderPlotly({
     plot_ly(mtcars, x = ~mpg, y = ~wt)

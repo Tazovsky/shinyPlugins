@@ -1,4 +1,5 @@
 library(shinyPlugins)
+futile.logger::flog.threshold(futile.logger::DEBUG)
 
 ui <- dashboardPage(
   dashboardHeader(title = "Simple tabs"),
@@ -8,7 +9,7 @@ ui <- dashboardPage(
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Widgets", tabName = "widgets", icon = icon("th"))
     ),
-      actionButton('switchtab', 'Switch tab')
+    actionButton('switchtab', 'Switch tab')
   ),
   dashboardBody(
     tabItems(
@@ -31,9 +32,9 @@ server <- function(input, output, session) {
     updateTabItems(session, "tabs", newtab)
   })
 
-  observe({
+  plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
 
-    plugins <- shiny_plugins$new(where = ls("package:shinyPlugins"))
+  observe({
 
     # -------------------------- insert menu tab(s)
     insertUI(
@@ -43,7 +44,6 @@ server <- function(input, output, session) {
     )
 
     # -------------------------- insert tabs' content
-    # browser()
 
     tabs.content <- plugins$getTabItems()
 
@@ -54,6 +54,14 @@ server <- function(input, output, session) {
         ui = tabs.content[[i]]
       )
     }
+  })
+
+  # -------------------------- server part of modules
+  plugins.list <- plugins$getPluginsList()
+  server.side.part.of.plugins <- lapply(names(plugins.list), function(nm) {
+    plugin <- plugins.list[[nm]]
+    futile.logger::flog.debug(sprintf("Running server side of module: %s", plugin$module_server_fun))
+    callModule(get(plugin$module_server_fun), plugin$args$id)
   })
 
 }
