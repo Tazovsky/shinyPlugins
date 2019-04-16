@@ -1,3 +1,4 @@
+library(shinyPlugins)
 
 header <- dashboardHeader(
   title = "Example Shiny app"

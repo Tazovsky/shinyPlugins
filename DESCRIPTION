@@ -13,4 +13,7 @@ Depends:
   shiny,
   shinydashboard,
   plotly
+Imports:
+  R6,
+  futile.logger
 RoxygenNote: 6.1.0
